@@ -139,28 +139,12 @@ const ReportPreview: React.FC<ReportPreviewProps> = ({
                     dangerouslySetInnerHTML={{ __html: report.previewContent }}
                   />
                 ) : (
-                  <>
-                    <h4 className="text-md font-medium mb-2">
-                      Table of Contents
-                    </h4>
-                    <ol className="list-decimal pl-5 space-y-1 text-sm">
-                      <li>Executive Summary</li>
-                      <li>Introduction and Methodology</li>
-                      <li>Market Overview and Trends</li>
-                      <li>Competitive Landscape Analysis</li>
-                      <li>Growth Opportunities and Challenges</li>
-                      <li>Strategic Recommendations</li>
-                      <li>Conclusion and Future Outlook</li>
-                      <li>Appendices and References</li>
-                    </ol>
-
-                    <div className="mt-4 p-3 bg-gray-100 rounded-md">
-                      <p className="text-sm italic">
-                        This is a preview of the report. Purchase to access the
-                        full content.
-                      </p>
-                    </div>
-                  </>
+                  <div className="p-3 bg-gray-100 rounded-md">
+                    <p className="text-sm italic">
+                      This is a preview of the report. Purchase to access the
+                      full content.
+                    </p>
+                  </div>
                 )}
               </div>
             </div>

@@ -155,23 +155,6 @@ const Footer = () => {
 
         <Separator className="my-8 bg-slate-700" />
 
-        {/* Newsletter */}
-        <div className="mb-8">
-          <h3 className="text-lg font-semibold mb-4">
-            Subscribe to Our Newsletter
-          </h3>
-          <div className="flex flex-col sm:flex-row gap-2">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="px-4 py-2 rounded-md bg-slate-800 text-white border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-grow"
-            />
-            <Button variant="default" className="bg-blue-600 hover:bg-blue-700">
-              Subscribe
-            </Button>
-          </div>
-        </div>
-
         {/* Copyright */}
         <div className="text-center text-slate-400 text-sm">
           <p>

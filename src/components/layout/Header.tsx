@@ -17,6 +17,7 @@ import { useCart } from "@/context/CartContext";
 
 interface HeaderProps {
   logoText?: string;
+  slogan?: string;
   cartItemCount?: number;
   isLoggedIn?: boolean;
   userName?: string;
@@ -25,6 +26,7 @@ interface HeaderProps {
 
 const Header = ({
   logoText = "Leagile Data Research Center",
+  slogan = "The source of research Data",
 
   cartItemCount,
   isLoggedIn = false,
@@ -42,9 +44,10 @@ const Header = ({
           <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
             <span className="text-primary-foreground font-bold">R</span>
           </div>
-          <span className="font-bold text-xl hidden md:inline-block">
-            {logoText}
-          </span>
+          <div className="hidden md:flex flex-col">
+            <span className="font-bold text-xl">{logoText}</span>
+            <span className="text-xs text-muted-foreground">{slogan}</span>
+          </div>
         </Link>
 
         {/* Mobile Menu Button - Only visible on small screens */}
@@ -79,16 +82,6 @@ const Header = ({
             Subscription Plans
           </Link>
         </nav>
-
-        {/* Search Bar */}
-        <div className="hidden md:flex relative w-full max-w-sm mx-4">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input
-            type="search"
-            placeholder="Search for research reports..."
-            className="pl-8 w-full"
-          />
-        </div>
 
         {/* Right Side Actions */}
         <div className="flex items-center space-x-4">

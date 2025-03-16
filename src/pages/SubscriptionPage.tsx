@@ -58,34 +58,33 @@ const SubscriptionPage = () => {
                 onSelectPlan={handleSelectPlan}
                 plans={[
                   {
-                    id: "basic-annual",
-                    name: "Basic",
-                    description:
-                      "Essential access to research reports and limited features",
-                    price: 287.9, // 20% off monthly price * 12
+                    id: "free-annual",
+                    name: "Free",
+                    description: "Basic access to limited research content",
+                    price: 0,
                     period: "yearly",
-                    buttonText: "Get Started",
+                    buttonText: "Start Free",
                     features: [
                       {
-                        name: "Access to 100+ research reports",
+                        name: "Access to 5 free reports",
                         included: true,
                       },
                       {
-                        name: "Download up to 10 reports/month",
+                        name: "Limited downloads (3/month)",
                         included: true,
                       },
                       { name: "Basic search functionality", included: true },
-                      { name: "Email support", included: true },
+                      { name: "Community forum access", included: true },
                       {
                         name: "Expert consultations",
                         included: false,
                         tooltip: "Available in Premium plan",
                       },
                       {
-                        name: "Priority access to new reports",
+                        name: "Early access to new reports",
                         included: false,
                       },
-                      { name: "Advanced analytics tools", included: false },
+                      { name: "Advanced analytics dashboard", included: false },
                     ],
                   },
                   {
@@ -134,8 +133,8 @@ const SubscriptionPage = () => {
                 <tr className="border-b">
                   <th className="text-left p-4 w-1/3">Features</th>
                   <th className="text-center p-4 w-1/3">
-                    <div className="font-bold text-lg">Basic</div>
-                    <div className="text-muted-foreground">$29.99/month</div>
+                    <div className="font-bold text-lg">Free</div>
+                    <div className="text-muted-foreground">$0/month</div>
                   </th>
                   <th className="text-center p-4 w-1/3 bg-primary/5 rounded-t-lg">
                     <div className="font-bold text-lg text-primary">
@@ -148,12 +147,12 @@ const SubscriptionPage = () => {
               <tbody>
                 <tr className="border-b">
                   <td className="p-4 font-medium">Research Reports Access</td>
-                  <td className="text-center p-4">100+ reports</td>
+                  <td className="text-center p-4">5 free reports</td>
                   <td className="text-center p-4 bg-primary/5">Unlimited</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-4 font-medium">Monthly Downloads</td>
-                  <td className="text-center p-4">10 reports</td>
+                  <td className="text-center p-4">3 reports</td>
                   <td className="text-center p-4 bg-primary/5">Unlimited</td>
                 </tr>
                 <tr className="border-b">
@@ -163,7 +162,7 @@ const SubscriptionPage = () => {
                 </tr>
                 <tr className="border-b">
                   <td className="p-4 font-medium">Customer Support</td>
-                  <td className="text-center p-4">Email only</td>
+                  <td className="text-center p-4">Community forum</td>
                   <td className="text-center p-4 bg-primary/5">
                     Priority email & phone
                   </td>
@@ -193,7 +192,7 @@ const SubscriptionPage = () => {
                 </tr>
                 <tr className="border-b">
                   <td className="p-4 font-medium">New Reports Access</td>
-                  <td className="text-center p-4">Standard</td>
+                  <td className="text-center p-4">None</td>
                   <td className="text-center p-4 bg-primary/5">Early access</td>
                 </tr>
                 <tr>
@@ -210,9 +209,9 @@ const SubscriptionPage = () => {
                   <td className="text-center p-4">
                     <Button
                       variant="outline"
-                      onClick={() => handleSelectPlan("basic")}
+                      onClick={() => handleSelectPlan("free")}
                     >
-                      Select Basic
+                      Select Free
                     </Button>
                   </td>
                   <td className="text-center p-4 bg-primary/5 rounded-b-lg">
@@ -235,13 +234,14 @@ const SubscriptionPage = () => {
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
                 <AccordionTrigger>
-                  What's included in the Basic plan?
+                  What's included in the Free plan?
                 </AccordionTrigger>
                 <AccordionContent>
-                  The Basic plan includes access to over 100 research reports,
-                  the ability to download up to 10 reports per month, basic
-                  search functionality, and email support. It's perfect for
-                  individuals who need occasional access to research materials.
+                  The Free plan includes access to 5 selected research reports,
+                  the ability to download up to 3 reports per month, basic
+                  search functionality, and community forum access. It's perfect
+                  for individuals who want to explore our platform before
+                  committing to a paid plan.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
@@ -272,7 +272,7 @@ const SubscriptionPage = () => {
                   Is there a free trial available?
                 </AccordionTrigger>
                 <AccordionContent>
-                  Yes, we offer a 14-day free trial for both our Basic and
+                  Yes, we offer a 14-day free trial for both our Free and
                   Premium plans. No credit card is required to start your trial.
                   You'll receive a reminder before your trial ends, at which
                   point you can choose to subscribe or cancel.
@@ -283,20 +283,20 @@ const SubscriptionPage = () => {
                   What happens if I exceed my download limit?
                 </AccordionTrigger>
                 <AccordionContent>
-                  Basic plan subscribers have a limit of 10 report downloads per
-                  month. If you reach this limit, you'll need to wait until your
-                  next billing cycle for the limit to reset, or you can upgrade
-                  to the Premium plan for unlimited downloads.
+                  Free plan users have a limit of 3 report downloads per month.
+                  If you reach this limit, you'll need to wait until the next
+                  month for the limit to reset, or you can upgrade to the
+                  Premium plan for unlimited downloads.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-6">
                 <AccordionTrigger>Can I switch between plans?</AccordionTrigger>
                 <AccordionContent>
-                  Yes, you can switch between the Basic and Premium plans at any
+                  Yes, you can switch between the Free and Premium plans at any
                   time. If you upgrade, the change will take effect immediately,
-                  and you'll be charged the prorated difference. If you
-                  downgrade, the change will take effect at the start of your
-                  next billing cycle.
+                  and you'll be charged for the Premium plan. If you downgrade
+                  from Premium to Free, the change will take effect at the start
+                  of your next billing cycle.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -348,7 +348,7 @@ const SubscriptionPage = () => {
                 </div>
               </div>
               <p className="text-muted-foreground">
-                "I've been a Basic subscriber for six months, and the quality of
+                "I've been a Free subscriber for six months, and the quality of
                 research reports is exceptional. It's helped me make more
                 informed investment decisions."
               </p>
@@ -389,9 +389,9 @@ const SubscriptionPage = () => {
             <Button
               variant="secondary"
               size="lg"
-              onClick={() => handleSelectPlan("basic")}
+              onClick={() => handleSelectPlan("free")}
             >
-              Try Basic Plan
+              Try Free Plan
             </Button>
             <Button
               variant="outline"

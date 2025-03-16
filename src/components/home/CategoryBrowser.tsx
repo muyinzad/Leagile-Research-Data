@@ -77,6 +77,38 @@ const CategoryBrowser = ({
     }
   };
 
+  // Check if we can scroll in a particular direction
+  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
+  const [canScrollRight, setCanScrollRight] = React.useState(true);
+
+  // Update scroll buttons state when scrolling happens
+  React.useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const checkScrollability = () => {
+      // Check if we can scroll left (scrollLeft > 0)
+      setCanScrollLeft(container.scrollLeft > 0);
+
+      // Check if we can scroll right (scrollLeft < scrollWidth - clientWidth)
+      setCanScrollRight(
+        container.scrollLeft <
+          container.scrollWidth - container.clientWidth - 10,
+      );
+    };
+
+    // Initial check
+    checkScrollability();
+
+    // Add event listener for scroll
+    container.addEventListener("scroll", checkScrollability);
+
+    // Cleanup
+    return () => {
+      container.removeEventListener("scroll", checkScrollability);
+    };
+  }, []);
+
   return (
     <div className="w-full bg-gray-50 py-8">
       <div className="container mx-auto px-4">
@@ -93,6 +125,8 @@ const CategoryBrowser = ({
               size="icon"
               onClick={() => scroll("left")}
               aria-label="Scroll left"
+              disabled={!canScrollLeft}
+              className={cn(!canScrollLeft && "opacity-50 cursor-not-allowed")}
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -101,6 +135,8 @@ const CategoryBrowser = ({
               size="icon"
               onClick={() => scroll("right")}
               aria-label="Scroll right"
+              disabled={!canScrollRight}
+              className={cn(!canScrollRight && "opacity-50 cursor-not-allowed")}
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -109,7 +145,11 @@ const CategoryBrowser = ({
 
         <div className="relative">
           <ScrollArea className="w-full" orientation="horizontal">
-            <div ref={scrollContainerRef} className="flex space-x-4 pb-4 px-1">
+            <div
+              ref={scrollContainerRef}
+              className="flex space-x-4 pb-4 px-1"
+              style={{ scrollBehavior: "smooth" }}
+            >
               {categories.map((category, index) => (
                 <CategoryItem
                   key={index}

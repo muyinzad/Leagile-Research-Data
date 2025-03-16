@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { useRoutes, Routes, Route } from "react-router-dom";
-import Home from "./components/home";
+import HomePage from "./components/home";
 import MainLayout from "./components/layout/MainLayout";
 import LoginPage from "./pages/LoginPage";
 import CartPage from "./pages/CartPage";
@@ -30,46 +30,39 @@ function App() {
 
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      <>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/"
-            element={
-              <MainLayout isLoggedIn={isLoggedIn} cartItemCount={cartItemCount}>
-                <Home />
-              </MainLayout>
-            }
-          />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/categories" element={<CategoryListPage />} />
-          <Route
-            path="/categories/:categorySlug"
-            element={<CategoriesPage />}
-          />
-          <Route path="/experts" element={<ExpertsPage />} />
-          <Route path="/experts/:expertId" element={<ExpertProfilePage />} />
-          <Route path="/subscription" element={<SubscriptionPage />} />
-          <Route path="/add-report" element={<AddReportPage />} />
-          <Route path="/dashboard" element={<UserDashboardPage />} />
+      {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/"
+          element={
+            <MainLayout isLoggedIn={isLoggedIn} cartItemCount={cartItemCount}>
+              <HomePage />
+            </MainLayout>
+          }
+        />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/categories" element={<CategoryListPage />} />
+        <Route path="/categories/:categorySlug" element={<CategoriesPage />} />
+        <Route path="/experts" element={<ExpertsPage />} />
+        <Route path="/experts/:expertId" element={<ExpertProfilePage />} />
+        <Route path="/subscription" element={<SubscriptionPage />} />
+        <Route path="/add-report" element={<AddReportPage />} />
+        <Route path="/dashboard" element={<UserDashboardPage />} />
 
-          {/* Admin Routes */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="reports" element={<ManageReports />} />
-            <Route path="categories" element={<ManageCategories />} />
-            <Route path="pricing" element={<ManagePricing />} />
-            <Route path="experts" element={<ManageExperts />} />
-            <Route path="analytics" element={<ViewAnalytics />} />
-          </Route>
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="reports" element={<ManageReports />} />
+          <Route path="categories" element={<ManageCategories />} />
+          <Route path="pricing" element={<ManagePricing />} />
+          <Route path="experts" element={<ManageExperts />} />
+          <Route path="analytics" element={<ViewAnalytics />} />
+        </Route>
 
-          {import.meta.env.VITE_TEMPO === "true" && (
-            <Route path="/tempobook/*" />
-          )}
-        </Routes>
-        {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
-      </>
+        {import.meta.env.VITE_TEMPO === "true" && <Route path="/tempobook/*" />}
+      </Routes>
     </Suspense>
   );
 }

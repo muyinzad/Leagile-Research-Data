@@ -30,7 +30,7 @@ import {
 
 interface UserDashboardProps {
   userName?: string;
-  subscriptionType?: "Basic" | "Premium" | "None";
+  subscriptionType?: "Premium" | "Free" | "None";
   subscriptionEndDate?: string;
   downloadedReports?: {
     id: string;
@@ -60,7 +60,7 @@ interface UserDashboardProps {
 
 const UserDashboard = ({
   userName = "John Doe",
-  subscriptionType = "Basic",
+  subscriptionType = "Premium",
   subscriptionEndDate = "2023-12-31",
   downloadedReports = [
     {
@@ -132,14 +132,14 @@ const UserDashboard = ({
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium">Subscription:</span>
               <Badge
-                variant={
-                  subscriptionType === "Premium"
-                    ? "default"
-                    : subscriptionType === "Basic"
-                      ? "secondary"
-                      : "outline"
+                variant={subscriptionType === "None" ? "outline" : "default"}
+                className={
+                  subscriptionType === "None"
+                    ? "bg-muted"
+                    : subscriptionType === "Free"
+                      ? "bg-secondary text-secondary-foreground"
+                      : ""
                 }
-                className={subscriptionType === "None" ? "bg-muted" : ""}
               >
                 {subscriptionType === "None"
                   ? "No Active Plan"

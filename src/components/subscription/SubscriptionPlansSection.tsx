@@ -44,24 +44,24 @@ interface SubscriptionPlansProps {
 
 const defaultPlans: SubscriptionPlan[] = [
   {
-    id: "basic",
-    name: "Basic",
-    description: "Essential access to research reports and limited features",
-    price: 29.99,
+    id: "free",
+    name: "Free",
+    description: "Basic access to limited research content",
+    price: 0,
     period: "monthly",
-    buttonText: "Get Started",
+    buttonText: "Start Free",
     features: [
-      { name: "Access to 100+ research reports", included: true },
-      { name: "Download up to 10 reports/month", included: true },
+      { name: "Access to 5 free reports", included: true },
+      { name: "Limited downloads (3/month)", included: true },
       { name: "Basic search functionality", included: true },
-      { name: "Email support", included: true },
+      { name: "Community forum access", included: true },
       {
-        name: "Expert consultations",
+        name: "Monthly expert consultations",
         included: false,
         tooltip: "Available in Premium plan",
       },
-      { name: "Priority access to new reports", included: false },
-      { name: "Advanced analytics tools", included: false },
+      { name: "Early access to new reports", included: false },
+      { name: "Advanced analytics dashboard", included: false },
     ],
   },
   {
@@ -114,7 +114,7 @@ const SubscriptionPlansSection: React.FC<SubscriptionPlansProps> = ({
                     variant="default"
                     className="bg-primary text-primary-foreground"
                   >
-                    Most Popular
+                    Premium Plan
                   </Badge>
                 </div>
               )}
@@ -181,7 +181,7 @@ const SubscriptionPlansSection: React.FC<SubscriptionPlansProps> = ({
             start.
           </p>
           <Button variant="link" className="text-sm">
-            View full plan comparison
+            View plan details
           </Button>
         </div>
       </div>

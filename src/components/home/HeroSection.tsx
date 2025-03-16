@@ -38,7 +38,11 @@ const HeroSection = ({
           </h1>
           <p className="text-lg md:text-xl opacity-90 mb-8">{description}</p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90"
+              onClick={() => (window.location.href = "/categories")}
+            >
               {browseReportsLabel}
             </Button>
             <div className="relative w-full max-w-md">
