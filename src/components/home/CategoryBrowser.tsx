@@ -47,7 +47,7 @@ interface CategoryBrowserProps {
 
 const CategoryBrowser = ({
   categories = [
-    { icon: <BookOpen size={24} />, name: "Academic Research" },
+    { icon: <BookOpen size={24} />, name: "Academics Research" },
     { icon: <LineChart size={24} />, name: "Market Analysis" },
     { icon: <Microscope size={24} />, name: "Scientific Studies" },
     { icon: <Building size={24} />, name: "Industry Reports" },

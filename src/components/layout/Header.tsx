@@ -25,7 +25,7 @@ interface HeaderProps {
 }
 
 const Header = ({
-  logoText = "Leagile Data Research Center",
+  logoText = "Leagile Research Data Center",
   slogan = "The source of research Data",
 
   cartItemCount,

@@ -20,7 +20,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">
-              Leagile Data Research Center
+            Leagile Research Data Center
             </h3>
             <p className="text-slate-300 mb-4">
               Your trusted platform for expert research and consultation
@@ -136,17 +136,17 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="mr-2 h-5 w-5 text-slate-400" />
                 <span className="text-slate-300">
-                  123 Research Avenue, Knowledge City, 10001
+                  123 Nakawa, Kampala - Uganda
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone className="mr-2 h-5 w-5 text-slate-400" />
-                <span className="text-slate-300">+1 (555) 123-4567</span>
+                <span className="text-slate-300">+256 (777) 123-4567</span>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-2 h-5 w-5 text-slate-400" />
                 <span className="text-slate-300">
-                  contact@researchmarket.com
+                  contact@leagile.com
                 </span>
               </li>
             </ul>
