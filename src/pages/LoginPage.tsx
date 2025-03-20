@@ -57,9 +57,7 @@ const LoginPage = () => {
                     <Button variant="outline" className="w-full">
                       Google
                     </Button>
-                    <Button variant="outline" className="w-full">
-                      GitHub
-                    </Button>
+                    
                   </div>
                 </div>
               </TabsContent>
