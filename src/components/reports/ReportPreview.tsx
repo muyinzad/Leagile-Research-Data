@@ -120,7 +120,7 @@ const ReportPreview: React.FC<ReportPreviewProps> = ({
               </Button>
               <Button variant="outline" className="w-full">
                 <Download className="mr-2 h-4 w-4" />
-                Download
+                Download 
               </Button>
             </div>
           </div>
